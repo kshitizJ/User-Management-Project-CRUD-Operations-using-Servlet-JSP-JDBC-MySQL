@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/kshitiz_j/Kshitiz/jsp/User Management Project (CRUD Operations) using Servlet  JSP  JDBC  MySQL Tomcat/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3152824699.index
+2561058304.index
+2733694791.index
+1425785304.index
+2030461925.index
+4283909460.index

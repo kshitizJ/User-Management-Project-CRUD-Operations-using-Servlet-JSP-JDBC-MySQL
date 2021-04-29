@@ -1,0 +1,69 @@
+package com.admin.usermanagement.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.print.PrintException;
+
+import com.admin.usermanagement.bean.User;
+
+public class UserDao {
+	private String jdbcURL = "jdbc:mysql://localhost:3306/userdb?useSSL=false";
+	private String jdbcUsername = "root";
+	private String jdbcPassword = "Kshitiz@123";
+	private String jdbcDriver = "com.mysql.jdbc.Driver";
+
+	private static final String INSERT_USERS_SQL = "INSERT INTO users (name, email, country) VALUES (?,?,?);";
+	private static final String SELECT_USER_BY_ID = "select * from users where id = ?;";
+	private static final String SELECT_ALL_USER = "select * from users;";
+	private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
+	private static final String UPDATE_USERS_SQL = "update users set name = ?, email = ?, country = ? where id = ?;";
+
+	public UserDao() {
+
+	}
+
+	protected Connection getConnection() {
+		Connection connection = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return connection;
+	}
+
+	// insert user method
+	public void insertUser(User user) throws Exception {
+		System.out.println(INSERT_USERS_SQL);
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+			preparedStatement.setString(1, user.getName());
+			preparedStatement.setString(2, user.getEmail());
+			preparedStatement.setString(3, user.getCountry());
+			System.out.println(preparedStatement);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			printSQLExeption(e);
+		}
+	}
+
+	private void printSQLExeption(SQLException ex) {
+		for (Throwable e : ex) {
+			if (e instanceof SQLException) {
+				e.printStackTrace(System.err);
+				System.err.println("SQLState: " + ((SQLException) e).getSQLState());
+				System.out.println("");
+			}
+		}
+	}
+
+	// select user by id
+	// select all users
+	// update method
+	// delete user
+
+}
