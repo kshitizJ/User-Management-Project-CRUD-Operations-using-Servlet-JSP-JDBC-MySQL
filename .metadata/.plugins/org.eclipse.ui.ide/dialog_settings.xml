@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/kshitiz_j/Kshitiz/java/jsp/User-Management-Project-CRUD-Operations-using-Servlet-JSP-JDBC-MySQL"/>
 			<item value="/home/kshitiz_j/Kshitiz/jsp/User Management Project (CRUD Operations) using Servlet  JSP  JDBC  MySQL Tomcat/User Management Project (CRUD) Operation"/>
 		</list>
 	</section>
